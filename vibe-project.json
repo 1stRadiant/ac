@@ -1,0 +1,477 @@
+{
+  "id": "whole-page",
+  "type": "container",
+  "description": "A community interest company website offering services like organ donation, advance care planning, and estate planning, featuring a blog and contact forms.",
+  "children": [
+    {
+      "id": "head-content",
+      "type": "head",
+      "description": "Metadata for the website, including title, character set, viewport settings, and links to Google Fonts and favicons.",
+      "code": "<title>Angels Outreach Community Interest Company</title>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <meta name=\"Author\" content=\"GigaGrowth\">\n    <meta name=\"keywords\" lang=\"en\" content=\"business\">\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-5\">\n    <meta name=\"description\" content=\"Angels Outreach Community Interest Company.\"/>\n    <link rel=\"icon\" type=\"image/png\" href=\"https://angelsoutreachcic.org.uk/dev/images/favicon.png\" sizes=\"16x16\">\n    <link rel=\"icon\" type=\"image/png\" href=\"https://angelsoutreachcic.org.uk/dev/images/favicon.png\" sizes=\"32x32\">\n    <link rel=\"icon\" type=\"image/png\" href=\"https://angelsoutreachcic.org.uk/dev/images/favicon.png\" sizes=\"96x96\">\n    \n    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n    <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n    <link href=\"https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&family=Barlow:wght@500&family=Kumbh+Sans:wght@400&display=swap\" rel=\"stylesheet\">"
+    },
+    {
+      "id": "page-styles",
+      "type": "css",
+      "description": "Comprehensive styles for the entire page, including global variables, component styles for navigation, hero, services, cards, modals, forms, and footer, plus responsive media queries.",
+      "code": "/* Global Styles */\n:root {\n    --primary-hover: #4338CA;\n    --text-color: #4B5563;\n    --heading-color: #111827;\n    --bg-light: #f9fafb;\n    --white: #fff;\n    --border-color: #e5e7eb}\n\n*, *::before, *::after {\n    box-sizing: border-box}\n\nhtml {\n    scroll-behavior: smooth}\n\nbody {\n    font-family: 'Inter', sans-serif;\n    color: var(--text-color);\n    margin: 0;\n    line-height: 1.6;\n    background-color: var(--white)}\n\nh1, h2, h3, h4, h5, h6 {\n    font-family: 'Poppins', sans-serif;\n    color: var(--heading-color);\n    font-weight: 700}\n\na {\n    text-decoration: none;\n    color: var(--primary-color);\n    transition: color 0.2s ease}\na:hover {\n    color: var(--primary-hover)}\n\n.vibe-container{max-width:1200px;margin:0 auto;padding:0 1.5rem;width:100%}\n\n.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 3rem}\n\n/* --- VibeUI Components CSS --- */\n\n/* Skip Link */\n.vibe-skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}.vibe-skip:focus{position:fixed;left:1rem;top:1rem;background:#fff;color:var(--primary-color);padding:.5rem 1rem;border-radius:6px;z-index:9999;box-shadow:0 4px 6px rgba(0,0,0,.1)}\n\n/* Responsive Navbar */\n.vibe-nav{background:#fff;box-shadow:0 4px 6px -1px rgba(0,0,0,.07),0 2px 4px -2px rgba(0,0,0,.04);position:sticky;top:0;z-index:2000;padding:1rem 0}.vibe-nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto}.vibe-nav-menu{display:flex;align-items:center;gap:2rem;list-style:none;margin:0;padding:0}.vibe-nav-menu a{color:#4B5563;text-decoration:none;font-weight:500;transition:color .2s ease}.vibe-nav-menu a:hover{color:var(--primary-color)}.vibe-nav-toggle{display:none;background:transparent;border:none;cursor:pointer}.icon-bar{display:block;width:24px;height:2px;background-color:#111827;border-radius:2px;transition:all .3s ease-in-out}.icon-bar+.icon-bar{margin-top:5px}\n\n.logo {\n  display: block;\n  position: relative;\n  width: 315px;\n  height: 60px;\n  text-decoration: none}\n.logo_image {\n  display: block;\n  position: absolute;\n  width: 60px;\n  height: 60px;\n  background-image: url('https://angelsoutreachcic.org.uk/images/logo.png');\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center}\n.logo_text {\n  display: block;\n  position: absolute;\n  left: 65px;\n  width: 250px;\n  height: 35px;\n  line-height: 35px;\n  font-family: 'Barlow', sans-serif;\n  font-size: 24px;\n  font-weight: 500;\n  color: #800020}\n.logo_sub_text {\n  display: block;\n  position: absolute;\n  left: 65px;\n  top: 35px;\n  width: 250px;\n  height: 20px;\n  line-height: 20px;\n  font-family: 'Kumbh Sans', sans-serif;\n  font-size: 14px;\n  font-weight: 400;\n  color: #800020}\n\n.vibe-nav-menu .dropdown { position: relative}\n.vibe-nav-menu .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: var(--white); box-shadow: 0 8px 16px rgba(0,0,0,0.1); border-radius: 8px; padding: 0.5rem 0; list-style: none; min-width: 240px; z-index: 2001; margin-top:0.5rem}\n.vibe-nav-menu .dropdown:hover .dropdown-menu { display: block}\n.vibe-nav-menu .dropdown-menu li { width: 100%}\n.vibe-nav-menu .dropdown-menu a { display: block; padding: 0.75rem 1.5rem; color: var(--text-color)}\n.vibe-nav-menu .dropdown-menu a:hover { background-color: #f1f1f1; color: var(--primary-color)}\n\n/* Button System */\n.vibe-btn{padding:.6rem 1.25rem;border-radius:8px;border:1px solid transparent;cursor:pointer;font-weight:600;font-size:0.9rem;transition:all .2s ease; display:inline-block}.vibe-btn-primary{background:var(--primary-color);color:#fff}.vibe-btn-primary:hover{background:var(--primary-hover);color:#fff}.vibe-btn-outline{background:transparent;border-color:#d1d5db;color:#374151}.vibe-btn-outline:hover{background:#f9fafb;border-color:var(--primary-color);color:var(--primary-color)}\n\n.vibe-nav-menu .vibe-btn { padding: 0.4rem 1rem}\n\n/* Hero Section */\n.vibe-hero{padding:5rem 0;text-align:center}\n.vibe-hero h1{font-size:3rem;margin:0 0 .5rem}.vibe-hero p{font-size:1.25rem;color:#6B7280;margin-bottom:2rem}\n.banner_wrapper.vibe-hero { \n    background: url(https://angelsoutreachcic.org.uk/images/banner.png) no-repeat center/cover;\n    position: relative; \n    color: var(--white); \n    padding: 7rem 0}\n.banner_wrapper.vibe-hero h1, .banner_wrapper.vibe-hero p { color: var(--white); text-shadow: 0 2px 4px rgba(0,0,0,0.5)}\n.banner_wrapper.vibe-hero::before { \n    content: ''; \n    position: absolute; \n    inset: 0; \n    background-color: rgba(128, 0, 32, 0.6); \n    z-index: 1}\n.banner_wrapper.vibe-hero .vibe-container { position: relative; z-index: 2}\n\n/* Service Sections */\n.service-section { padding: 5rem 0}\n.service-section:nth-child(even) { background-color: var(--bg-light)}\n.service-container { display: flex; align-items: center; gap: 4rem}\n.service-container.reverse { flex-direction: row-reverse}\n.service-image, .service-text { flex: 1}\n.service-image img { max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,.1)}\n.service-text h2 { font-size: 2.25rem; margin-top: 0}\n.service-text p { font-size: 1.1rem; color: var(--text-color); margin-bottom: 2rem}\n\n/* Why Us Section / Card Grid */\n.why-us-section { padding: 5rem 0; background-color: var(--white)}\n.vibe-card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}\n.vibe-card{border-radius:0.75rem;overflow:hidden;background-color:#fff;border:1px solid var(--border-color);box-shadow:0 4px 6px -1px rgba(0,0,0,.05);transition:transform .2s ease,box-shadow .2s ease}\n.vibe-card:hover{transform:translateY(-4px);box-shadow:0 10px 15px -3px rgba(0,0,0,.1)}\n.vibe-card-media{width:100%;height:180px;display:block;object-fit:cover}\n.vibe-card-body{padding:1.5rem}\n.vibe-card-body h4{margin:0 0 .5rem;font-size:1.25rem;color:var(--heading-color)}\n.vibe-card-body p{margin:0 0 1.25rem;color:var(--text-color);line-height:1.6}\n.vibe-card-btn{display:inline-block;padding:.5rem 1rem;border-radius:999px;background-color:#F3F4F6;color:#1F2937;text-decoration:none;font-weight:500;font-size:.875rem;transition:background-color .2s ease, color .2s ease; cursor:pointer; border: none}\n.vibe-card-btn:hover{background-color:var(--primary-color);color:#fff}\n\n/* Modal Dialog */\n.vibe-modal{position:fixed;inset:0;z-index:3000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .3s ease}.vibe-modal.is-open{opacity:1;visibility:visible}.vibe-modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(4px)}.vibe-modal-panel{position:relative;max-width:650px;width:90%;padding:2rem;background:#fff;border-radius:.75rem;box-shadow:0 10px 15px -3px rgba(0,0,0,.1);transform:scale(.95);transition:transform .3s ease; max-height: 90vh; overflow-y: auto}.vibe-modal.is-open .vibe-modal-panel{transform:scale(1)}.vibe-modal-close{position:absolute;top:1rem;right:1rem;background:transparent;border:none;cursor:pointer; font-size: 1.2rem; color: #666}\n\n\n/* Contact Section */\n.contact-section { padding: 5rem 0; background: var(--bg-light)}\n.contact-form { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem}\n.contact-form button { align-self: flex-start}\n\n/* Input with Floating Label */\n.vibe-field{position:relative;display:block}.vibe-field input{width:100%;padding:.85rem;border:1px solid #d1d5db;border-radius:8px;transition:border-color .2s ease; background-color:var(--white); font-size:1rem}.vibe-field input:focus{border-color:var(--primary-color);outline:none}.vibe-field-label{position:absolute;left:12px;top:14px;transform-origin:left top;transition:all .2s ease;color:#6B7280;background:#fff;padding:0 .25rem;pointer-events:none}.vibe-field input:focus + .vibe-field-label,.vibe-field input:not(:placeholder-shown) + .vibe-field-label{transform:translateY(-50%) scale(.85);top:0}\n\n/* Textarea Autosize */\n.vibe-textarea{width:100%;padding:.85rem;border:1px solid #d1d5db;border-radius:8px;resize:none;min-height:96px;transition:border-color .2s ease; font-family:'Inter', sans-serif; font-size:1rem}.vibe-textarea:focus{border-color:var(--primary-color);outline:none}\n\n/* Rich Text Editor */\n.vibe-editor{min-height:200px;padding:1rem;border:1px solid #d1d5db;border-radius:8px;background:#fff;transition:border-color .2s ease; margin-top: 1rem}.vibe-editor:focus{outline:none;border-color:var(--primary-color)}\n\n/* Footer */\n.vibe-footer{padding:4rem 0 0;background:#111827;color:#9CA3AF}\n.vibe-footer .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; padding-bottom: 3rem}\n.vibe-footer .footer_section .footer_logo { font-family:'Poppins', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--white); margin-bottom: 1rem}\n.vibe-footer .footer_section .footer_title { font-family:'Poppins', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--white); margin-bottom: 1rem}\n.vibe-footer .footer_section a { display: block; color:#9CA3AF; text-decoration:none; margin-bottom: 0.5rem}\n.vibe-footer .footer_section a:hover{color:var(--white)}\n.vibe-footer .copyright_wrapper { padding: 1.5rem 0; margin-top: 2rem; border-top: 1px solid #374151; text-align: center; font-size: 0.9rem}\n.vibe-footer .copyright_container a { color: var(--white); text-decoration: underline}\n\n/* Login State Visibility */\n.show-if-logged-in { display: none}\nbody.logged-in .show-if-logged-in { display: block}\nbody.logged-in .hide-if-logged-in { display: none}\n\n.create-post-container { text-align: right; margin-bottom: 2rem}\n\n/* Organ Donation Page Styles */\n.page_wrapper{\ndisplay:block;\nposition:relative;\nwidth:100%;\nheight:auto;\n}\n\n.page_container{\ndisplay:flex;\nposition:relative;\nwidth:100%;\nheight:auto;\nmargin:0 auto;\ngap: 3rem;\nflex-wrap: wrap;\n}\n\n.page_section{\n flex: 2;\n min-width: 300px;\n}\n.page_sidebar{\n flex: 1;\n min-width: 280px;\n}\n.page_section h1 {\n  font-size: 2.5rem; margin-bottom: 1.5rem; color: #800020;\n}\n.page_image img {\n  max-width: 100%; height: auto; border-radius: 12px;\n}\n.para {\n  line-height: 1.7; margin-top: 1rem;\n}\n.para ul { padding-left: 20px; margin-top: 1rem;}\n.para li { margin-bottom: 0.75rem;}\n\n.enquiry_wrapper{\ndisplay:block;\nposition:relative;\nwidth:100%;\nheight:auto;\nbackground-color:#FFFFFF;\nmargin:0 auto;\n}\n\n.enquiry_container{\ndisplay:block;\nposition:relative;\nwidth:100%;\nheight:auto;\nmargin:0 auto;\n}\n\n.enquiry_form_wrapper{\ndisplay:block;\nposition:relative;\nwidth:100%;\nmin-height:519px;\nheight:auto;\nmargin:0 auto;\n}\n\n.enquiry_form_container{\ndisplay:block;\nposition:absolute;\nwidth:100%;\nheight:auto;\nbackground-color:#FFFFFF;\nborder:1px solid #DFDFDF;\nbox-shadow: 0 2px 2px #E2E2E2;\nborder-radius:5px;\n}\n\n.enquiry_form_container h1{\ndisplay:block;\nposition:relative;\nleft:50px;\ntop:5px;\nwidth:calc(100% - 100px);\nheight:20px;\nline-height:20px;\nheight:auto;\nfont-family:arial, helvetica, sans-serif;\nfont-size:18px;\nfont-weight:400;\ncolor:#006BFF;\nmargin:0px;\n}\n\n#enq_organ_donation, #enq_estate_planning, #enq_acp {\ndisplay:block;\nposition:relative;\nleft:40px;\ntop:10px;\nwidth:calc(100% - 80px);\nheight:519px;\n}\n\n.enquiry_input{\ndisplay:block;\nposition:absolute;\nwidth:calc(100% - 12px);\nheight:38px;\nfont-family:arial,helvetica,sans-serif;\nfont-size:14px;\ncolor:#383838;\npadding:0px;\npadding-left:10px;\nbackground-color:#FAFAFA;\nborder:1px solid #DFDFDF;\nborder-radius:3px;\n}\n\n.enquiry_textarea{\ndisplay:block;\nposition:absolute;\nwidth:calc(100% - 12px);\nheight:140px;\nfont-family:arial,helvetica,sans-serif;\nfont-size:14px;\ncolor:#383838;\npadding:0px;\npadding-top:9px;\npadding-left:10px;\nbackground-color:#FAFAFA;\nborder:1px solid #DFDFDF;\nborder-radius:3px;\nresize: none;\n}\n\n.labels{\ndisplay:block;\nposition:absolute;\nwidth:290px;\nheight:30px;\npadding-top:10px;\nline-height:20px;\nfont-family:'Kumbh Sans',sans-serif;\nfont-size:16px;\nfont-weight:500;\ncolor:#4D4D4D;\n}\n\n.error_labels{\ndisplay:block;\nposition:absolute;\nwidth:290px;\nheight:30px;\npadding-top:10px;\nline-height:20px;\nfont-family:'Kumbh Sans',sans-serif;\nfont-weight:500;\nfont-size:16px;\n}\n\n#enq_organ_donation #fullname_label_od, #enq_estate_planning #fullname_label_ep, #enq_acp #fullname_label_acp { top:0px; }\n#enq_organ_donation #fullname_od, #enq_estate_planning #fullname_ep, #enq_acp #fullname_acp { top:30px; }\n#enq_organ_donation #email_label_od, #enq_estate_planning #email_label_ep, #enq_acp #email_label_acp { top:70px; }\n#enq_organ_donation #email_od, #enq_estate_planning #email_ep, #enq_acp #email_acp { top:100px; }\n#enq_organ_donation #phone_label_od, #enq_estate_planning #phone_label_ep, #enq_acp #phone_label_acp { left:0px; top:140px; }\n#enq_organ_donation #phone_od, #enq_estate_planning #phone_ep, #enq_acp #phone_acp { left:0px; top:170px; }\n#enq_organ_donation #message_label_od, #enq_estate_planning #message_label_ep, #enq_acp #message_label_acp { left:0px; top:210px; }\n#enq_organ_donation #message_od, #enq_estate_planning #message_ep, #enq_acp #message_acp { left:0px; top:240px; }\n\n.submit_btn{\ndisplay:block;\nposition:absolute;\ntop:423px;\nleft:0px;\nwidth:calc(100% + 2px);\nheight:44px;\nline-height:46px;\ntext-align:center;\nvertical-align:middle;\ntext-decoration:none;\ncolor:#FFFFFF;\nfont-family:'Poppins',sans-serif;\nfont-size:16px;\nfont-weight:600;\nborder:0px;\nbackground-color:#F68522;\nborder-bottom:2px solid #CC5D04;\nborder-radius:4px;\ncursor:pointer;\n}\n\n.submit_btn:hover{\ncolor:#FFFFFF;\nbackground-color:#CC5D04;\n}\n\n\n@media (max-width: 768px) {\n    /* Navbar */\n    .vibe-nav-toggle { display: block}\n    .vibe-nav-menu {\n        position: fixed;\n        left: -100%;\n        top: 0;\n        height: 100vh;\n        width: 280px;\n        background: #fff;\n        flex-direction: column;\n        align-items: flex-start;\n        padding: 6rem 2rem;\n        gap: 1.5rem;\n        transition: left .3s ease;\n        box-shadow: 0 10px 15px -3px rgba(0,0,0,.1)}\n    .vibe-nav-menu.is-open { left: 0}\n    .vibe-nav-menu .dropdown-menu {\n        position: static;\n        display: block;\n        box-shadow: none;\n        background: transparent;\n        padding: 0.5rem 0 0 1rem;\n        border: none;\n        min-width: unset;\n        margin-top: 0}\n    .vibe-nav-menu .dropdown > a { font-weight: bold}\n    .vibe-nav-menu .dropdown-menu a {\n        padding: 0.5rem 1rem;\n        font-weight: 400}\n    \n    /* Responsive Logo */\n    .logo {\n        width: 240px;\n        height: 50px}\n    .logo_image {\n        width: 50px;\n        height: 50px}\n    .logo_text {\n        left: 55px;\n        width: 185px;\n        height: 30px;\n        line-height: 30px;\n        font-size: 18px}\n    .logo_sub_text {\n        left: 55px;\n        top: 28px;\n        width: 185px;\n        height: 20px;\n        line-height: 20px;\n        font-size: 11px}\n\n    /* Hero */\n    .vibe-hero h1 { font-size: 2.25rem}\n    .vibe-hero p { font-size: 1.1rem}\n\n    /* Services */\n    .service-container, \n    .service-container.reverse {\n        flex-direction: column;\n        text-align: center;\n        gap: 2rem}\n}"
+    },
+    {
+      "id": "skip-to-content-link",
+      "type": "html",
+      "description": "An accessibility link to allow keyboard users to skip directly to the main content.",
+      "code": "<a data-vibe-node-id=\"skip-to-content-link\" href=\"#main\" class=\"vibe-skip\">Skip to content</a>",
+      "selector": "#whole-page",
+      "position": "beforeend"
+    },
+    {
+      "id": "main-navigation",
+      "type": "html",
+      "description": "The main sticky navigation bar for the website.",
+      "code": "<nav data-vibe-node-id=\"main-navigation\" class=\"vibe-nav\" id=\"main-navigation\"></nav>",
+      "selector": "#skip-to-content-link",
+      "position": "afterend",
+      "children": [
+        {
+          "id": "nav-container",
+          "type": "html",
+          "description": "Inner container for the navigation bar, holding the logo, mobile toggle, and menu.",
+          "code": "<div data-vibe-node-id=\"nav-container\" class=\"vibe-container vibe-nav-inner\">\n    <a class=\"logo\" href=\"#\">\n        <div class=\"logo_image\"></div>\n        <div class=\"logo_text\">ANGELS OUTREACH</div>\n        <div class=\"logo_sub_text\">COMMUNITY INTEREST COMPANY</div>\n    </a>\n    <button class=\"vibe-nav-toggle\" aria-label=\"Toggle navigation\" aria-expanded=\"false\">\n      <span class=\"icon-bar\"></span>\n      <span class=\"icon-bar\"></span>\n      <span class=\"icon-bar\"></span>\n    </button>\n    <ul class=\"vibe-nav-menu\">\n      <li><a href=\"#\" onclick=\"showPage('home-content')\">Home</a></li>\n      <li><a href=\"https://angelsoutreachcic.org.uk/about-us\">About Us</a></li>\n      <li class=\"dropdown\">\n          <a href=\"#\">Services ▾</a>\n          <ul class=\"dropdown-menu\">\n              <li><a href=\"#\" onclick=\"showPage('organ-donation-page')\">Organ Donation</a></li>\n              <li><a href=\"#\" onclick=\"showPage('advance-care-planning-page')\">Advance Care Planning</a></li>\n              <li><a href=\"#\" onclick=\"showPage('estate-planning-page')\">Estate Planning</a></li>\n          </ul>\n      </li>\n      <li><a href=\"#\" onclick=\"showPage('full-blog-page')\">Blog</a></li>\n      <li><a href=\"#enquiry_wrapper\">Contact</a></li>\n      <li class=\"hide-if-logged-in\"><button class=\"vibe-btn vibe-btn-outline\" onclick=\"openModal('loginModal')\">Login</button></li>\n      <li class=\"show-if-logged-in\"><button class=\"vibe-btn vibe-btn-primary\" id=\"logoutBtn\">Logout</button></li>\n    </ul>\n  </div>",
+          "selector": "#main-navigation",
+          "position": "beforeend"
+        }
+      ]
+    },
+    {
+      "id": "home-content-wrapper",
+      "type": "html",
+      "description": "A container for all the main sections of the homepage.",
+      "code": "<div data-vibe-node-id=\"home-content-wrapper\" id=\"home-content\"></div>",
+      "selector": "#main-navigation",
+      "position": "afterend",
+      "children": [
+        {
+          "id": "hero-section",
+          "type": "html",
+          "description": "The main hero banner section with a background image, heading, and call-to-action.",
+          "code": "<section data-vibe-node-id=\"hero-section\" class=\"vibe-hero banner_wrapper\" id=\"hero-section\"></section>",
+          "selector": "#home-content-wrapper",
+          "position": "beforeend",
+          "children": [
+            {
+              "id": "hero-content-container",
+              "type": "html",
+              "description": "The centered content container within the hero section.",
+              "code": "<div data-vibe-node-id=\"hero-content-container\" class=\"vibe-container\">\n            <h1>Power to the People!</h1>\n            <p>Sharing healthcare preferences with loved ones and creating estate plans is a valuable gift to those closest to you.</p>\n            <a class=\"vibe-btn vibe-btn-primary\" href=\"#enquiry_wrapper\">Get in touch</a>\n        </div>",
+              "selector": "#hero-section",
+              "position": "beforeend"
+            }
+          ]
+        },
+        {
+          "id": "main-content-area",
+          "type": "html",
+          "description": "The main content area of the homepage, containing the service description sections.",
+          "code": "<main data-vibe-node-id=\"main-content-area\" id=\"main\"></main>",
+          "selector": "#hero-section",
+          "position": "afterend",
+          "children": [
+            {
+              "id": "organ-donation-service-section",
+              "type": "html",
+              "description": "A section detailing the Organ Donation service with an image, text, and link.",
+              "code": "<section data-vibe-node-id=\"organ-donation-service-section\" class=\"service-section\" id=\"organ-donation-service-section\"></section>",
+              "selector": "#main-content-area",
+              "position": "beforeend",
+              "children": [
+                {
+                  "id": "organ-donation-container",
+                  "type": "html",
+                  "description": "The container for the Organ Donation service content.",
+                  "code": "<div data-vibe-node-id=\"organ-donation-container\" class=\"vibe-container service-container\">\n                <div class=\"service-image\">\n                    <img src=\"https://angelsoutreachcic.org.uk/images/organ_donation.png\" alt=\"Organ Donation illustration\">\n                </div>\n                <div class=\"service-text\">\n                    <h2>Organ Donation</h2>\n                    <p>Through educational initiatives and impactful campaigns, we strive to create a society that recognises the transformative power of this selfless act.</p>\n                    <a href=\"#\" onclick=\"showPage('organ-donation-page')\" class=\"vibe-btn vibe-btn-outline\">Find out more</a>\n                </div>\n            </div>",
+                  "selector": "#organ-donation-service-section",
+                  "position": "beforeend"
+                }
+              ]
+            },
+            {
+              "id": "advance-care-planning-service-section",
+              "type": "html",
+              "description": "A section detailing the Advance Care Planning service with a reversed layout.",
+              "code": "<section data-vibe-node-id=\"advance-care-planning-service-section\" class=\"service-section\" id=\"advance-care-planning-service-section\"></section>",
+              "selector": "#organ-donation-service-section",
+              "position": "afterend",
+              "children": [
+                {
+                  "id": "advance-care-planning-container",
+                  "type": "html",
+                  "description": "The container for the Advance Care Planning service content.",
+                  "code": "<div data-vibe-node-id=\"advance-care-planning-container\" class=\"vibe-container service-container reverse\">\n                <div class=\"service-image\">\n                    <img src=\"https://angelsoutreachcic.org.uk/images/advanced_care_planning.png\" alt=\"Advance Care Planning illustration\">\n                </div>\n                <div class=\"service-text\">\n                    <h2>Advance Care Planning</h2>\n                    <p>Engaging and informative sessions to educate communities on the importance of sharing and documenting their healthcare decisions through advance directives.</p>\n                    <a href=\"#\" onclick=\"showPage('advance-care-planning-page')\" class=\"vibe-btn vibe-btn-outline\">Find out more</a>\n                </div>\n            </div>",
+                  "selector": "#advance-care-planning-service-section",
+                  "position": "beforeend"
+                }
+              ]
+            },
+            {
+              "id": "estate-planning-service-section",
+              "type": "html",
+              "description": "A section detailing the Estate Planning service with an image, text, and link.",
+              "code": "<section data-vibe-node-id=\"estate-planning-service-section\" class=\"service-section\" id=\"estate-planning-service-section\"></section>",
+              "selector": "#advance-care-planning-service-section",
+              "position": "afterend",
+              "children": [
+                {
+                  "id": "estate-planning-container",
+                  "type": "html",
+                  "description": "The container for the Estate Planning service content.",
+                  "code": "<div data-vibe-node-id=\"estate-planning-container\" class=\"vibe-container service-container\">\n                <div class=\"service-image\">\n                    <img src=\"https://angelsoutreachcic.org.uk/images/estate_planning.png\" alt=\"Estate Planning illustration\">\n                </div>\n                <div class=\"service-text\">\n                    <h2>Estate Planning</h2>\n                    <p>Empowering individuals to make informed decisions about the best ways of managing their assets, their funerals and distribution of their estates.</p>\n                    <a href=\"#\" onclick=\"showPage('estate-planning-page')\" class=\"vibe-btn vibe-btn-outline\">Find out more</a>\n                </div>\n            </div>",
+                  "selector": "#estate-planning-service-section",
+                  "position": "beforeend"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "why-us-section",
+          "type": "html",
+          "description": "A section with a grid of cards explaining the reasons to choose Angels Outreach.",
+          "code": "<section data-vibe-node-id=\"why-us-section\" class=\"why-us-section\" id=\"why-us-section\"></section>",
+          "selector": "#main-content-area",
+          "position": "afterend",
+          "children": [
+            {
+              "id": "why-us-container",
+              "type": "html",
+              "description": "The content container for the 'Why Us' section, including the title and card grid.",
+              "code": "<div data-vibe-node-id=\"why-us-container\" class=\"vibe-container\">\n            <h2 class=\"section-title\">Why Choose Angels Outreach?</h2>\n            <div class=\"vibe-card-grid\">\n                <article class=\"vibe-card\">\n                    <div class=\"vibe-card-body\">\n                        <h4>Community-Centric</h4>\n                        <p>We prioritise the needs of marginalised communities, tailoring our resources to address unique healthcare and estate planning challenges and concerns.</p>\n                    </div>\n                </article>\n                <article class=\"vibe-card\">\n                    <div class=\"vibe-card-body\">\n                        <h4>Inclusivity</h4>\n                        <p>We are committed to reaching every corner of society, ensuring that no one is left behind.</p>\n                    </div>\n                </article>\n                <article class=\"vibe-card\">\n                    <div class=\"vibe-card-body\">\n                        <h4>Education</h4>\n                        <p>We believe in the power of knowledge to transform lives. By providing individuals with the tools and education they need, we empower them to take control of their health and financial future.</p>\n                    </div>\n                </article>\n                <article class=\"vibe-card\">\n                    <div class=\"vibe-card-body\">\n                        <h4>Community Collaboration</h4>\n                        <p>By working hand-in-hand with local organisations, we maximise our impact and create lasting change.</p>\n                    </div>\n                </article>\n                <article class=\"vibe-card\">\n                    <div class=\"vibe-card-body\">\n                        <h4>Trustworthy</h4>\n                        <p>We are committed to transparency and ethical practices. You can trust us to provide reliable information and support.</p>\n                    </div>\n                </article>\n            </div>\n        </div>",
+              "selector": "#why-us-section",
+              "position": "beforeend"
+            }
+          ]
+        },
+        {
+          "id": "blog-section-preview",
+          "type": "html",
+          "description": "A section to display a preview of the latest blog posts.",
+          "code": "<section data-vibe-node-id=\"blog-section-preview\" id=\"blog-section\" class=\"service-section\" style=\"background-color: var(--bg-light);\"></section>",
+          "selector": "#why-us-section",
+          "position": "afterend",
+          "children": [
+            {
+              "id": "blog-section-container",
+              "type": "html",
+              "description": "The content container for the blog preview section.",
+              "code": "<div data-vibe-node-id=\"blog-section-container\" class=\"vibe-container\">\n            <h2 class=\"section-title\">From Our Blog</h2>\n            <div class=\"vibe-card-grid\" id=\"blogGrid\">\n                <!-- Blog posts will be dynamically inserted here -->\n            </div>\n            <div style=\"text-align: center; margin-top: 2.5rem;\">\n                <a href=\"#\" onclick=\"showPage('full-blog-page')\" class=\"vibe-btn vibe-btn-primary\">View All Posts</a>\n            </div>\n        </div>",
+              "selector": "#blog-section-preview",
+              "position": "beforeend"
+            }
+          ]
+        },
+        {
+          "id": "contact-section",
+          "type": "html",
+          "description": "The main contact section with a form for user inquiries.",
+          "code": "<section data-vibe-node-id=\"contact-section\" id=\"enquiry_wrapper\" class=\"contact-section\"></section>",
+          "selector": "#blog-section-preview",
+          "position": "afterend",
+          "children": [
+            {
+              "id": "contact-form-container",
+              "type": "html",
+              "description": "The container for the contact form.",
+              "code": "<div data-vibe-node-id=\"contact-form-container\" class=\"vibe-container\">\n            <h2 class=\"section-title\">Contact Us</h2>\n            <form id=\"enq\" method=\"post\" action=\"https://angelsoutreachcic.org.uk/get_message.php\" class=\"contact-form\">\n                <label class=\"vibe-field\">\n                    <input type=\"text\" name=\"fullname\" required=\"\" placeholder=\" \">\n                    <span class=\"vibe-field-label\">Full Name</span>\n                </label>\n                <label class=\"vibe-field\">\n                    <input type=\"email\" name=\"email\" required=\"\" placeholder=\" \">\n                    <span class=\"vibe-field-label\">Email Address</span>\n                </label>\n                <label class=\"vibe-field\">\n                    <input type=\"tel\" name=\"phone\" required=\"\" placeholder=\" \">\n                    <span class=\"vibe-field-label\">Phone</span>\n                </label>\n                <textarea class=\"vibe-textarea\" name=\"message\" rows=\"4\" placeholder=\"Your message...\"></textarea>\n                <button type=\"submit\" class=\"vibe-btn vibe-btn-primary\">Submit</button>\n            </form>\n        </div>",
+              "selector": "#contact-section",
+              "position": "beforeend"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "full-blog-page-section",
+      "type": "html",
+      "description": "A hidden section that displays the full list of blog posts when activated.",
+      "code": "<section data-vibe-node-id=\"full-blog-page-section\" id=\"full-blog-page\" class=\"service-section\" style=\"display: none; min-height: 80vh;\"></section>",
+      "selector": "#home-content-wrapper",
+      "position": "afterend",
+      "children": [
+        {
+          "id": "full-blog-page-container",
+          "type": "html",
+          "description": "The container for the full blog page, including controls and the post grid.",
+          "code": "<div data-vibe-node-id=\"full-blog-page-container\" class=\"vibe-container\">\n        <div style=\"display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;\">\n            <h2 class=\"section-title\" style=\"margin-bottom: 0; text-align: left;\">Our Blog</h2>\n            <button class=\"vibe-btn vibe-btn-outline\" onclick=\"showPage('home-content')\">Back to Home</button>\n        </div>\n        <div class=\"create-post-container show-if-logged-in\">\n            <button class=\"vibe-btn vibe-btn-primary\" onclick=\"openModal('createPostModal')\">Create New Post</button>\n        </div>\n        <div id=\"fullBlogGrid\" class=\"vibe-card-grid\">\n            <!-- All blog posts will be dynamically inserted here -->\n        </div>\n    </div>",
+          "selector": "#full-blog-page-section",
+          "position": "beforeend"
+        }
+      ]
+    },
+    {
+      "id": "organ-donation-page",
+      "type": "html",
+      "description": "A hidden detailed page about Organ Donation, with content and a contact form sidebar.",
+      "code": "<section data-vibe-node-id=\"organ-donation-page\" id=\"organ-donation-page\" class=\"service-section\" style=\"display: none;\"></section>",
+      "selector": "#full-blog-page-section",
+      "position": "afterend",
+      "children": [
+        {
+          "id": "organ-donation-page-content",
+          "type": "html",
+          "description": "The main content wrapper for the Organ Donation page.",
+          "code": "<div data-vibe-node-id=\"organ-donation-page-content\" class=\"page_wrapper\">\n        <div class=\"page_container vibe-container\">\n            <div class=\"page_section\">\n                <h1>Organ Donation</h1>\n                <div class=\"page_image\">\n                   <img src=\"https://angelsoutreachcic.org.uk/images/organ_donation.png\" alt=\"Organ Donation\">\n                 </div>\n                <div class=\"para\">\n                <b>Organ Donation in the UK: Opt-Out System Unveiled</b> In May 2020, the new ‘opt-out’ organ\n                donation law was passed in England. This law is a crucial step to help battle the long waiting\n                lists of patients awaiting a transplant.This groundbreaking change empowers individuals to\n                make an active choice regarding organ donation, fostering a culture of awareness and\n                understanding.\n                Become part of a movement that values informed decision-making in organ donation. Stay\n                informed, understand your options, and contribute to the broader conversation about organ\n                donation in the UK.\n                </div>\n            </div>\n            <div class=\"page_sidebar\">\n                <div class=\"enquiry_wrapper\">\n                    <div class=\"enquiry_container\">\n                        <div class=\"enquiry_form_wrapper\">\n                            <div class=\"enquiry_form_container\">\n                               <form id=\"enq_organ_donation\" method=\"post\" action=\"https://angelsoutreachcic.org.uk/get_message.php\">\n                                   <div class=\"labels\" id=\"fullname_label_od\"></div>\n                                   <input class=\"enquiry_input\" id=\"fullname_od\" type=\"text\" name=\"fullname\" value=\"Full Name\" onfocus=\"clearField('fullname_od','Full Name')\" onblur=\"restoreField('fullname_od','Full Name')\">\n    \n                                   <div class=\"labels\" id=\"email_label_od\"></div>\n                                   <input class=\"enquiry_input\" id=\"email_od\" type=\"text\" name=\"email\" value=\"Email\" onfocus=\"clearField('email_od','Email')\" onblur=\"restoreField('email_od','Email')\">\n    \n                                   <div class=\"labels\" id=\"phone_label_od\"></div>\n                                   <input class=\"enquiry_input\" id=\"phone_od\" type=\"text\" name=\"phone\" value=\"Phone\" onfocus=\"clearField('phone_od','Phone')\" onblur=\"restoreField('phone_od','Phone')\">\n    \n                                   <div class=\"labels\" id=\"message_label_od\"></div>\n                                   <textarea class=\"enquiry_textarea\" id=\"message_od\" name=\"message\" onfocus=\"clearField('message_od','Message')\" onblur=\"restoreField('message_od','Message')\">Message</textarea>\n    \n                                   <div class=\"submit_btn\" onclick=\"document.getElementById('enq_organ_donation').submit()\">Contact Us</div>\n                              </form>\n                           </div>\n                      </div>\n                    </div>\n                </div>\n            </div>\n      </div>\n    </div>",
+          "selector": "#organ-donation-page",
+          "position": "beforeend"
+        }
+      ]
+    },
+    {
+      "id": "estate-planning-page",
+      "type": "html",
+      "description": "A hidden detailed page about Estate Planning, with content and a contact form sidebar.",
+      "code": "<section data-vibe-node-id=\"estate-planning-page\" id=\"estate-planning-page\" class=\"service-section\" style=\"display: none;\"></section>",
+      "selector": "#organ-donation-page",
+      "position": "afterend",
+      "children": [
+        {
+          "id": "estate-planning-page-content",
+          "type": "html",
+          "description": "The main content wrapper for the Estate Planning page.",
+          "code": "<div data-vibe-node-id=\"estate-planning-page-content\" class=\"page_wrapper\">\n        <div class=\"page_container vibe-container\">\n            <div class=\"page_section\">\n                <h1>Estate Planning</h1>\n                <div class=\"page_image\">\n                   <img src=\"https://angelsoutreachcic.org.uk/images/estate_planning.png\" alt=\"Estate Planning\">\n                </div>\n                <div class=\"para\">\n                    <p>Estate Planning is a proactive and responsible approach to managing one’s affairs during their\n                    lifetime and ensuring a smooth transition of assets to beneficiaries after their death. It\n                    addresses financial,legal, and personal considerations, providing individuals with control over\n                    their legacy and the well-being of their loved ones.</p>\n                    <p>Key components of estate planning services may include:</p>\n                    <ul>\n                        <li><b>Will and Testament:</b> A legal document that specifies how a person's assets should be\n                        distributed upon their death. It may also include provisions for the care of minor children\n                        and the appointment of an executor to carry out the instructions.</li>\n                        <li><b>Trusts:</b> Legal arrangements that allow a third party, known as the trustee, to hold and\n                        manage assets on behalf of beneficiaries. Trusts can be used to avoid probate, provide\n                        for minor children, and offer flexibility in distributing assets.</li>\n                        <li><b>Beneficiary Designations:</b> Ensuring that beneficiary designations on life insurance\n                        policies, retirement accounts, and other financial instruments are up-to-date and aligned\n                        with the individual's wishes.</li>\n                        <li><b>Gift Planning:</b> Strategies for gifting assets during one's lifetime to minimise tax\n                        implications and potentially reduce the size of the taxable estate.</li>\n                        <li><b>Charitable Giving:</b> Incorporating philanthropic goals into the estate plan through\n                        charitable trusts, foundations, or other giving mechanisms.</li>\n                        <li><b>Estate Tax Planning:</b> Strategies to minimise the impact of estate taxes, which may\n                        include the use of trusts, gifting, and other tax-efficient planning tools.</li>\n                        <li><b>Probate Avoidance:</b> Structuring the estate to minimise the need for probate, a legal\n                        process that validates a will and oversees the distribution of assets.</li>\n                        <li><b>Probate (Administration of Deceased Estates):</b> The legal process of administering the estate of\n                        a deceased person through the Probate Court. This process typically involves validating and\n                        executing their will, settling outstanding debts, and distributing the remaining assets to the heirs\n                        or beneficiaries as outlined in the will or as determined by applicable laws. It is a crucial step in\n                        managing the affairs of the deceased and ensuring a lawful and orderly transfer of property and\n                        assets.</li>\n                    </ul>\n                    <p>The primary goals of estate planning include ensuring that a person's wishes are honoured,\n                    minimising tax liabilities, and facilitating the smooth transfer of assets to beneficiaries.</p>\n                </div>\n            </div>\n            <div class=\"page_sidebar\">\n                <div class=\"enquiry_wrapper\">\n                    <div class=\"enquiry_container\">\n                        <div class=\"enquiry_form_wrapper\">\n                            <div class=\"enquiry_form_container\">\n                               <form id=\"enq_estate_planning\" method=\"post\" action=\"https://angelsoutreachcic.org.uk/get_message.php\">\n                                   <div class=\"labels\" id=\"fullname_label_ep\"></div>\n                                   <input class=\"enquiry_input\" id=\"fullname_ep\" type=\"text\" name=\"fullname\" value=\"Full Name\" onfocus=\"clearField('fullname_ep','Full Name')\" onblur=\"restoreField('fullname_ep','Full Name')\">\n    \n                                   <div class=\"labels\" id=\"email_label_ep\"></div>\n                                   <input class=\"enquiry_input\" id=\"email_ep\" type=\"text\" name=\"email\" value=\"Email\" onfocus=\"clearField('email_ep','Email')\" onblur=\"restoreField('email_ep','Email')\">\n    \n                                   <div class=\"labels\" id=\"phone_label_ep\"></div>\n                                   <input class=\"enquiry_input\" id=\"phone_ep\" type=\"text\" name=\"phone\" value=\"Phone\" onfocus=\"clearField('phone_ep','Phone')\" onblur=\"restoreField('phone_ep','Phone')\">\n    \n                                   <div class=\"labels\" id=\"message_label_ep\"></div>\n                                   <textarea class=\"enquiry_textarea\" id=\"message_ep\" name=\"message\" onfocus=\"clearField('message_ep','Message')\" onblur=\"restoreField('message_ep','Message')\">Message</textarea>\n    \n                                   <div class=\"submit_btn\" onclick=\"document.getElementById('enq_estate_planning').submit()\">Contact Us</div>\n                              </form>\n                           </div>\n                      </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>",
+          "selector": "#estate-planning-page",
+          "position": "beforeend"
+        }
+      ]
+    },
+    {
+      "id": "advance-care-planning-page",
+      "type": "html",
+      "description": "A hidden detailed page about Advance Care Planning, with content and a contact form sidebar.",
+      "code": "<section data-vibe-node-id=\"advance-care-planning-page\" id=\"advance-care-planning-page\" class=\"service-section\" style=\"display: none;\"></section>",
+      "selector": "#estate-planning-page",
+      "position": "afterend",
+      "children": [
+        {
+          "id": "advance-care-planning-page-content",
+          "type": "html",
+          "description": "The main content wrapper for the Advance Care Planning page.",
+          "code": "<div data-vibe-node-id=\"advance-care-planning-page-content\" class=\"page_wrapper\">\n        <div class=\"page_container vibe-container\">\n            <div class=\"page_section\">\n                <h1>Advance Care Planning</h1>\n                <div class=\"page_image\">\n                   <img src=\"https://angelsoutreachcic.org.uk/images/advanced_care_planning.png\" alt=\"Advance Care Planning\">\n                 </div>\n                <div class=\"para\">\n                    <p><b>An advance Statement</b> lets you make general statements, describing your wishes and preferences about future care, should you be unable to make or communicate a decision or express your preferences at the time.</p>\n                    <p>You may want it to reflect religious or other beliefs and important aspects of your life. It is helpful to write this information down, so people can refer to it if they want to know what you like and what is important to you. It is not a legal document.</p>\n                    <p><b>Lasting Power of Attorney (LPA) for Health and Welfare:</b> A legal document that empowers you to appoint a trusted individual, known as an ‘attorney’, to make crucial healthcare and personal care decisions on your behalf when you are unable to due to illness, incapacity or any other reason.</p>\n                    <p>When creating a Lasting Power of Attorney (LPA) for Health and care Welfare, let your chosen attorney(s) know if you have an advance statement. This alerts them to what you would want to happen, if they need to make decisions on your behalf.</p>\n                    <p>It only comes into force if you are unable to make your own decisions.</p>\n                    <p><b>Lasting Power of Attorney for Property and Finances:</b> Gives your attorney the power to make decisions about your property and financial matters. This may include managing your bank or building society accounts, paying bills, collecting your pension or benefits or, selling your home.</p>\n                    <p>Once registered with the Office of the Public Guardian, it can be used immediately or held in readiness until required.</p>\n                    <p><b>Why Are Advance Directives Important?</b></p>\n                    <p>Advance directives are essential for several reasons:</p>\n                    <ul>\n                        <li><b>Preserve Autonomy:</b> They allow you to maintain control over your healthcare decisions, even when you cannot communicate your wishes.</li>\n                        <li><b>Relieve Burden:</b> Advance directives ease the decision-making burden on your loved ones, ensuring that they are aware of your preferences and can respect your choices.</li>\n                        <li><b>Ensure Quality of Life:</b> They enable you to outline your expectations for medical treatment and interventions, promoting a higher quality of life aligned with your values.</li>\n                        <li><b>Reduce Conflicts:</b> Advance directives can reduce potential conflicts among family members and healthcare providers by providing clear guidance.</li>\n                    </ul>\n                    <p><b>Creating Advance Directives</b></p>\n                    <p>Creating advance directives is a straightforward process:</p>\n                    <ul>\n                        <li><b>Consider Your Values:</b> Think about your healthcare preferences, values, and goals, especially in challenging medical situations.</li>\n                        <li><b>Consult with Loved Ones:</b> Discuss your wishes with your family and healthcare proxy to ensure they understand and support your decisions.</li>\n                        <li><b>Complete the Documents:</b> Work with legal professionals to create and formalise your advance directives. These documents must comply with your state's laws.</li>\n                        <li><b>Distribute Copies:</b> Provide copies of your advance directives to your healthcare providers, family members, and your chosen healthcare proxy.</li>\n                        <li><b>Review and Update:</b> Periodically review and update your advance directives to ensure they reflect your current preferences and circumstances.</li>\n                    </ul>\n                </div>\n            </div>\n            <div class=\"page_sidebar\">\n                <div class=\"enquiry_wrapper\">\n                    <div class=\"enquiry_container\">\n                        <div class=\"enquiry_form_wrapper\">\n                            <div class=\"enquiry_form_container\">\n                               <h1></h1>\n                               <form id=\"enq_acp\" method=\"post\" action=\"https://angelsoutreachcic.org.uk/get_message.php\">\n                                   <div class=\"labels\" id=\"fullname_label_acp\"></div>\n                                   <input class=\"enquiry_input\" id=\"fullname_acp\" type=\"text\" name=\"fullname\" value=\"Full Name\" onfocus=\"clearField('fullname_acp','Full Name')\" onblur=\"restoreField('fullname_acp','Full Name')\">\n    \n                                   <div class=\"labels\" id=\"email_label_acp\"></div>\n                                   <input class=\"enquiry_input\" id=\"email_acp\" type=\"text\" name=\"email\" value=\"Email\" onfocus=\"clearField('email_acp','Email')\" onblur=\"restoreField('email_acp','Email')\">\n    \n                                   <div class=\"labels\" id=\"phone_label_acp\"></div>\n                                   <input class=\"enquiry_input\" id=\"phone_acp\" type=\"text\" name=\"phone\" value=\"Phone\" onfocus=\"clearField('phone_acp','Phone')\" onblur=\"restoreField('phone_acp','Phone')\">\n    \n                                   <div class=\"labels\" id=\"message_label_acp\"></div>\n                                   <textarea class=\"enquiry_textarea\" id=\"message_acp\" name=\"message\" onfocus=\"clearField('message_acp','Message')\" onblur=\"restoreField('message_acp','Message')\">Message</textarea>\n    \n                                   <div class=\"submit_btn\" onclick=\"document.getElementById('enq_acp').submit()\">Contact Us</div>\n                              </form>\n                           </div>\n                      </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>",
+          "selector": "#advance-care-planning-page",
+          "position": "beforeend"
+        }
+      ]
+    },
+    {
+      "id": "terms-and-conditions-page",
+      "type": "html",
+      "description": "A hidden page containing the website's terms and conditions.",
+      "code": "<section data-vibe-node-id=\"terms-and-conditions-page\" id=\"terms-and-conditions-page\" class=\"service-section\" style=\"display: none; min-height: 80vh;\"></section>",
+      "selector": "#advance-care-planning-page",
+      "position": "afterend",
+      "children": [
+        {
+          "id": "terms-page-content",
+          "type": "html",
+          "description": "The content container for the terms and conditions page.",
+          "code": "<div data-vibe-node-id=\"terms-page-content\" class=\"vibe-container\">\n        <div style=\"display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;\">\n            <h2 class=\"section-title\" style=\"margin-bottom: 0; text-align: left;\">Terms and Conditions</h2>\n            <button class=\"vibe-btn vibe-btn-outline\" onclick=\"showPage('home-content')\">Back to Home</button>\n        </div>\n        <div class=\"para\">\n            <p>Please read these terms and conditions (\"terms and conditions\", \"terms\") carefully before using AngelsOutreachcic.org.uk website (“website”, \"service\") operated by Angels Outreach Community Interest Company (\"us\", 'we\", \"our\").</p>\n            <h4 style=\"font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--heading-color);\">Conditions of use</h4>\n            <p>By using this website, you certify that you have read and reviewed this Agreement and that you agree to comply with its terms. If you do not want to be bound by the terms of this Agreement, you are advised to leave the website accordingly. Angels Outreach Community Interest Company only grants use and access of this website, its products, and its services to those who have accepted its terms.</p>\n            <h4 style=\"font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--heading-color);\">Privacy policy</h4>\n            <p>Before you continue using our website, we advise you to read our <a href=\"#\" onclick=\"showPage('privacy-policy-page')\" title=\"Privacy Policy\" rel=\"nofollow\">Privacy Policy</a> regarding our user data collection. It will help you better understand our practices.</p>\n            <h4 style=\"font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--heading-color);\">Age restriction</h4>\n            <p>You must be at least 18 (eighteen) years of age before you can use this website. By using this website, you warrant that you are at least 18 years of age and you may legally adhere to this Agreement. Angels Outreach Community Interest Company assumes no responsibility for liabilities related to age misrepresentation.</p>\n            <h4 style=\"font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--heading-color);\">Intellectual property</h4>\n            <p>You agree that all materials, products, and services provided on this website are the property of Angels Outreach Community Interest Company, its affiliates, directors, officers, employees, agents, suppliers, or licensors including all copyrights, trade secrets, trademarks, patents, and other intellectual property. You also agree that you will not reproduce or redistribute the Angels Outreach Community Interest Company’s intellectual property in any way, including electronic, digital, or new trademark registrations. You grant Angels Outreach Community Interest Company a royalty-free and non-exclusive license to display, use, copy, transmit, and broadcast the content you upload and publish. For issues regarding intellectual property claims, you should contact the company in order to come to an agreement.</p>\n            <h4 style=\"font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--heading-color);\">User accounts</h4>\n            <p>As a user of this website, you may be asked to register with us and provide private information. You are responsible for ensuring the accuracy of this information, and you are responsible for maintaining the safety and security of your identifying information. You are also responsible for all activities that occur under your account or password. If you think there are any possible issues regarding the security of your account on the website, inform us immediately so we may address them accordingly. We reserve all rights to terminate accounts, edit or remove content and cancel orders at our sole discretion.</p>\n            <h4 style=\"font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--heading-color);\">Applicable law</h4>\n            <p>By visiting this website, you agree that the laws of the state of the United Kingdom without regard to principles of conflict laws, will govern these terms and conditions, or any dispute of any sort that might come between Angels Outreach Community Interest Company and you, or its business partners and associates.</p>\n            <h4 style=\"font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--heading-color);\">Disputes</h4>\n            <p>Any dispute related in any way to your visit to this website or to products and services you purchase from us shall be arbitrated by HM Magistrates Court and you consent to exclusive jurisdiction and venue of such courts.</p>\n            <h4 style=\"font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--heading-color);\">Indemnification</h4>\n            <p>You agree to indemnify Angels Outreach Community Interest Company and its affiliates and hold Angels Outreach Community Interest Company harmless against legal claims and demands that may arise from your use or misuse of our services. We reserve the right to select our own legal counsel.</p>\n            <h4 style=\"font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--heading-color);\">Limitation on liability</h4>\n            <p>Angels Outreach Community Interest Company is not liable for any damages that may occur to you as a result of your misuse of our website. Angels Outreach Community Interest Company reserves the right to edit, modify, and change this Agreement at any time. We shall let our users know of these changes through electronic mail. This Agreement is an understanding between Angels Outreach Community Interest Company and the user, and this supersedes and replaces all prior agreements regarding the use of this website.</p>\n        </div>\n    </div>",
+          "selector": "#terms-and-conditions-page",
+          "position": "beforeend"
+        }
+      ]
+    },
+    {
+      "id": "privacy-policy-page",
+      "type": "html",
+      "description": "A hidden page containing the website's privacy policy.",
+      "code": "<section data-vibe-node-id=\"privacy-policy-page\" id=\"privacy-policy-page\" class=\"service-section\" style=\"display: none; min-height: 80vh;\"></section>",
+      "selector": "#terms-and-conditions-page",
+      "position": "afterend",
+      "children": [
+        {
+          "id": "privacy-policy-content",
+          "type": "html",
+          "description": "The content container for the privacy policy page.",
+          "code": "<div data-vibe-node-id=\"privacy-policy-content\" class=\"vibe-container\">\n        <div style=\"display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;\">\n            <h2 class=\"section-title\" style=\"margin-bottom: 0; text-align: left;\">Privacy Policy</h2>\n            <button class=\"vibe-btn vibe-btn-outline\" onclick=\"showPage('home-content')\">Back to Home</button>\n        </div>\n        <div class=\"para\">\n            <p>This privacy policy (\"policy\") will help you understand how Angels Outreach Community Interest Company (\"us\", \"we\", \"our\") uses and protects the data you provide to us when you visit and use AngelsOutreachcic.org.uk (\"website\", \"service\").</p>\n            <p>We reserve the right to change this policy at any given time, of which you will be promptly updated. If you want to make sure that you are up to date with the latest changes, we advise you to frequently visit this page.</p>\n\n            <h4 style=\"font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--heading-color);\">What User Data We Collect</h4>\n            <p>When you visit the website, we may collect the following data:</p>\n            <ul>\n                <li>Your IP address.</li>\n                <li>Your contact information and email address.</li>\n                <li>Other information such as interests and preferences.</li>\n                <li>Data profile regarding your online behavior on our website.</li>\n            </ul>\n\n            <h4 style=\"font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--heading-color);\">Why We Collect Your Data</h4>\n            <p>We are collecting your data for several reasons:</p>\n            <ul>\n                <li>To better understand your needs.</li>\n                <li>To improve our services and products.</li>\n                <li>To send you promotional emails containing the information we think you will find interesting.</li>\n                <li>To contact you to fill out surveys and participate in other types of market research.</li>\n                <li>To customize our website according to your online behavior and personal preferences.</li>\n            </ul>\n\n            <h4 style=\"font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--heading-color);\">Safeguarding and Securing the Data</h4>\n            <p>Angels Outreach Community Interest Company is committed to securing your data and keeping it confidential. Angels Outreach Community Interest Company has done all in its power to prevent data theft, unauthorized access, and disclosure by implementing the latest technologies and software, which help us safeguard all the information we collect online.</p>\n\n            <h4 style=\"font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--heading-color);\">Our Cookie Policy</h4>\n            <p>Once you agree to allow our website to use cookies, you also agree to use the data it collects regarding your online behavior (analyze web traffic, web pages you spend the most time on, and websites you visit).</p>\n            <p>The data we collect by using cookies is used to customize our website to your needs. After we use the data for statistical analysis, the data is completely removed from our systems.</p>\n            <p>Please note that cookies don't allow us to gain control of your computer in any way. They are strictly used to monitor which pages you find useful and which you do not so that we can provide a better experience for you.</p>\n            <p>If you want to disable cookies, you can do it by accessing the settings of your internet browser.</p>\n\n            <h4 style=\"font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--heading-color);\">Links to Other Websites</h4>\n            <p>Our website contains links that lead to other websites. If you click on these links Angels Outreach Community Interest Company is not held responsible for your data and privacy protection. Visiting those websites is not governed by this privacy policy agreement. Make sure to read the privacy policy documentation of the website you go to from our website.</p>\n\n            <h4 style=\"font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--heading-color);\">Restricting the Collection of your Personal Data</h4>\n            <p>At some point, you might wish to restrict the use and collection of your personal data. You can achieve this by doing the following:</p>\n            <ul>\n                <li>When you are filling the forms on the website, make sure to check if there is a box which you can leave unchecked, if you don't want to disclose your personal information.</li>\n                <li>If you have already agreed to share your information with us, feel free to contact us via email and we will be more than happy to change this for you.</li>\n            </ul>\n            <p>Angels Outreach Community Interest Company will not lease, sell or distribute your personal information to any third parties, unless we have your permission. We might do so if the law forces us. Your personal information will be used when we need to send you promotional materials if you agree to this privacy policy.</p>\n        </div>\n    </div>",
+          "selector": "#privacy-policy-page",
+          "position": "beforeend"
+        }
+      ]
+    },
+    {
+      "id": "login-modal",
+      "type": "html",
+      "description": "A modal dialog for users to log in to manage blog posts.",
+      "code": "<div data-vibe-node-id=\"login-modal\" class=\"vibe-modal\" id=\"loginModal\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"loginModalTitle\" aria-hidden=\"true\"></div>",
+      "selector": "#privacy-policy-page",
+      "position": "afterend",
+      "children": [
+        {
+          "id": "login-modal-backdrop",
+          "type": "html",
+          "description": "The backdrop for the login modal.",
+          "code": "<div data-vibe-node-id=\"login-modal-content\" class=\"vibe-modal-backdrop\" onclick=\"closeModal('loginModal')\"></div>",
+          "selector": "#login-modal",
+          "position": "beforeend"
+        },
+        {
+          "id": "login-modal-panel",
+          "type": "html",
+          "description": "The main panel of the login modal, containing the form.",
+          "code": "<div class=\"vibe-modal-panel\" role=\"document\">\n    <button class=\"vibe-modal-close\" aria-label=\"Close\" onclick=\"closeModal('loginModal')\">✕</button>\n    <h3 id=\"loginModalTitle\" style=\"margin-top:0; font-size: 1.75rem;\">Login</h3>\n    <p>Enter your credentials to create and manage blog posts.</p>\n    <form id=\"loginForm\" class=\"contact-form\" style=\"max-width: none;\">\n        <label class=\"vibe-field\">\n            <input type=\"email\" required=\"\" placeholder=\" \" value=\"user@example.com\">\n            <span class=\"vibe-field-label\">Email Address</span>\n        </label>\n        <label class=\"vibe-field\">\n            <input type=\"password\" required=\"\" placeholder=\" \" value=\"password\">\n            <span class=\"vibe-field-label\">Password</span>\n        </label>\n        <button type=\"submit\" class=\"vibe-btn vibe-btn-primary\">Login</button>\n    </form>\n  </div>",
+          "selector": "#login-modal-backdrop",
+          "position": "afterend"
+        }
+      ]
+    },
+    {
+      "id": "create-post-modal",
+      "type": "html",
+      "description": "A modal dialog for creating a new blog post.",
+      "code": "<div data-vibe-node-id=\"create-post-modal\" class=\"vibe-modal\" id=\"createPostModal\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"createPostModalTitle\" aria-hidden=\"true\"></div>",
+      "selector": "#login-modal",
+      "position": "afterend",
+      "children": [
+        {
+          "id": "create-post-modal-backdrop",
+          "type": "html",
+          "description": "The backdrop for the create post modal.",
+          "code": "<div data-vibe-node-id=\"create-post-modal-content\" class=\"vibe-modal-backdrop\" onclick=\"closeModal('createPostModal')\"></div>",
+          "selector": "#create-post-modal",
+          "position": "beforeend"
+        },
+        {
+          "id": "create-post-modal-panel",
+          "type": "html",
+          "description": "The main panel of the create post modal, containing the creation form.",
+          "code": "<div class=\"vibe-modal-panel\" role=\"document\">\n    <button class=\"vibe-modal-close\" aria-label=\"Close\" onclick=\"closeModal('createPostModal')\">✕</button>\n    <h3 id=\"createPostModalTitle\" style=\"margin-top:0; font-size: 1.75rem;\">Create New Post</h3>\n    <form id=\"createPostForm\" class=\"contact-form\" style=\"max-width: none;\">\n        <label class=\"vibe-field\">\n            <input type=\"text\" id=\"postTitle\" required=\"\" placeholder=\" \">\n            <span class=\"vibe-field-label\">Post Title</span>\n        </label>\n        <label class=\"vibe-field\">\n            <input type=\"url\" id=\"postImageUrl\" placeholder=\" \">\n            <span class=\"vibe-field-label\">Image URL (Optional)</span>\n        </label>\n        <label class=\"vibe-field\">\n            <input type=\"text\" id=\"postImageAlt\" placeholder=\" \">\n            <span class=\"vibe-field-label\">Image Alt Text (Optional)</span>\n        </label>\n        <div id=\"postContentEditor\" class=\"vibe-editor\" contenteditable=\"true\" aria-label=\"Post Content\"></div>\n        <button type=\"submit\" class=\"vibe-btn vibe-btn-primary\" style=\"margin-top: 1rem;\">Save Post</button>\n    </form>\n  </div>",
+          "selector": "#create-post-modal-backdrop",
+          "position": "afterend"
+        }
+      ]
+    },
+    {
+      "id": "page-footer",
+      "type": "html",
+      "description": "The main footer for the website, containing navigation links, contact info, and copyright.",
+      "code": "<footer data-vibe-node-id=\"page-footer\" class=\"vibe-footer\" id=\"page-footer\"></footer>",
+      "selector": "#create-post-modal",
+      "position": "afterend",
+      "children": [
+        {
+          "id": "footer-content-container",
+          "type": "html",
+          "description": "The primary container within the footer that holds the grid of links and information.",
+          "code": "<div data-vibe-node-id=\"footer-content-container\" class=\"vibe-container\" id=\"footer-content-container\"></div>",
+          "selector": "#page-footer",
+          "position": "beforeend",
+          "children": [
+            {
+              "id": "footer-grid",
+              "type": "html",
+              "description": "A grid layout for organizing footer content into distinct sections.",
+              "code": "<div data-vibe-node-id=\"footer-grid\" class=\"footer-grid\">\n            <div id=\"footer_section1\" class=\"footer_section\">\n                <div class=\"footer_logo\">ANGELS OUTREACH</div>\n                <div class=\"company_synopsis\">Community<br>Interest<br>Company</div>\n            </div>\n            <div id=\"footer_section2\" class=\"footer_section\">\n                <div class=\"footer_title\">Company</div>\n                <a class=\"footer_link\" href=\"https://angelsoutreachcic.org.uk/about-us\" title=\"About Us\">About Us</a>\n                <a class=\"footer_link\" href=\"#\" onclick=\"showPage('full-blog-page')\" title=\"Blog\">Blog</a>\n                <a class=\"footer_link\" href=\"#\" onclick=\"showPage('terms-and-conditions-page')\" title=\"Terms &amp; Conditions\" rel=\"nofollow\">Terms &amp; Conditions</a>\n                <a class=\"footer_link\" href=\"#\" onclick=\"showPage('privacy-policy-page')\" title=\"Privacy Policy\" rel=\"nofollow\">Privacy Policy</a>\n            </div>\n            <div id=\"footer_section3\" class=\"footer_section\">\n                <div class=\"footer_title\">Services</div>\n                <a class=\"footer_link\" href=\"#\" onclick=\"showPage('organ-donation-page')\" title=\"Organ Donation\">Organ Donation</a>\n                <a class=\"footer_link\" href=\"#\" onclick=\"showPage('advance-care-planning-page')\" title=\"Advance Care Planning\">Advance Care Planning</a>\n                <a class=\"footer_link\" href=\"#\" onclick=\"showPage('estate-planning-page')\" title=\"Estate Planning\">Estate Planning</a>\n            </div>\n            <div id=\"footer_section4\" class=\"footer_section\">\n                <div class=\"footer_title\">Contact Us</div>\n                <div class=\"newsletter_intro\">\n                Have questions or need assistance?<br>\n                Ready to learn more or partner with Angels Outreach?<br>\n                Reach out to us at:<br><a href=\"/cdn-cgi/l/email-protection\" class=\"__cf_email__\" data-cfemail=\"55363a39393c3b2615343b323039263a2021273034363d7b3a27327b203e\">[email&nbsp;protected]</a><br>Call us at 07956169423</div>\n            </div>\n        </div>",
+              "selector": "#footer-content-container",
+              "position": "beforeend"
+            }
+          ]
+        },
+        {
+          "id": "copyright-wrapper",
+          "type": "html",
+          "description": "A wrapper for the copyright notice at the bottom of the footer.",
+          "code": "<div data-vibe-node-id=\"copyright-wrapper\" class=\"copyright_wrapper\">\n        <div class=\"vibe-container copyright_container\">\n            ©2025&nbsp;<a id=\"homelink\" href=\"#\" onclick=\"showPage('home-content')\" title=\"Angels Outreach Community Interest Company\">Angels Outreach</a>\n        </div>\n    </div>",
+          "selector": "#footer-content-container",
+          "position": "afterend"
+        }
+      ]
+    },
+    {
+      "id": "function-open-modal",
+      "type": "js-function",
+      "description": "Opens a modal dialog by its ID, making it visible and accessible.",
+      "code": "window.openModal = function(id){const m=document.getElementById(id);if(m){m.classList.add('is-open');m.setAttribute('aria-hidden','false');}}"
+    },
+    {
+      "id": "function-close-modal",
+      "type": "js-function",
+      "description": "Closes a modal dialog by its ID, hiding it from view.",
+      "code": "window.closeModal = function(id){const m=document.getElementById(id);if(m){m.classList.remove('is-open');m.setAttribute('aria-hidden','true');}}"
+    },
+    {
+      "id": "function-show-page",
+      "type": "js-function",
+      "description": "Hides all main content sections and displays only the one with the specified page ID.",
+      "code": "window.showPage = function(pageId) {\n    document.getElementById('home-content').style.display = 'none';\n    document.getElementById('full-blog-page').style.display = 'none';\n    document.getElementById('organ-donation-page').style.display = 'none';\n    document.getElementById('estate-planning-page').style.display = 'none';\n    document.getElementById('advance-care-planning-page').style.display = 'none';\n    document.getElementById('terms-and-conditions-page').style.display = 'none';\n    document.getElementById('privacy-policy-page').style.display = 'none';\n    \n    const page = document.getElementById(pageId);\n    if (page) {\n        page.style.display = 'block';\n        document.querySelector('.vibe-nav-menu')?.classList.remove('is-open');\n        document.querySelector('.vibe-nav-toggle')?.setAttribute('aria-expanded', 'false');\n        window.scrollTo(0, 0);\n    }\n}"
+    },
+    {
+      "id": "function-escape-html",
+      "type": "js-function",
+      "description": "A utility function to escape HTML special characters in a string to prevent XSS.",
+      "code": "function escapeHTML(str) { return str.replace(/[&<>\"']/g, match => ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',\"'\":'&#39;'})[match]); }"
+    },
+    {
+      "id": "function-check-login-status",
+      "type": "js-function",
+      "description": "Checks local storage for login status and adds or removes a 'logged-in' class to the body accordingly.",
+      "code": "function checkLoginStatus() {\n    if (localStorage.getItem('isLoggedIn') === 'true') {\n        document.body.classList.add('logged-in');\n    } else {\n        document.body.classList.remove('logged-in');\n    }\n}"
+    },
+    {
+      "id": "function-render-all-blog-content",
+      "type": "js-function",
+      "description": "Renders blog posts from local storage into both the homepage preview and the full blog page grid, and creates their corresponding modals.",
+      "code": "function renderAllBlogContent() {\n    const homepageGrid = document.getElementById('blogGrid');\n    const fullPageGrid = document.getElementById('fullBlogGrid');\n    if (!homepageGrid || !fullPageGrid) return;\n\n    homepageGrid.innerHTML = '';\n    fullPageGrid.innerHTML = '';\n    document.querySelectorAll('.blog-post-modal').forEach(modal => modal.remove());\n    \n    const posts = JSON.parse(localStorage.getItem('blogPosts')) || [initialPost];\n    \n    posts.forEach((post, index) => {\n        const escapedTitle = escapeHTML(post.title);\n        const tempDiv = document.createElement('div');\n        tempDiv.innerHTML = post.content;\n        const summary = tempDiv.textContent || tempDiv.innerText || \"\";\n        const shortSummary = escapeHTML(summary.length > 150 ? summary.substring(0, 150) + '...' : summary);\n        const altText = post.alt ? escapeHTML(post.alt) : escapedTitle;\n\n        const postCardHTML = `\n        <article class=\\\"vibe-card\\\">\n          ${post.imageUrl ? `<img class=\\\"vibe-card-media\\\" src=\\\"${\"\" + escapeHTML(post.imageUrl)}\\\" alt=\\\"${\"\" + altText}\\\">` : ''}\n          <div class=\\\"vibe-card-body\\\">\n            <h4>${escapedTitle}</h4>\n            <p>${shortSummary}</p>\n            <button class=\\\"vibe-card-btn\\\" onclick=\\\"openModal('${post.id}')\\\">Read More</button>\n          </div>\n        </article>`;\n\n        const postModalHTML = `\n        <div class=\\\"vibe-modal blog-post-modal\\\" id=\\\"${\"\" + post.id}\\\" role=\\\"dialog\\\" aria-modal=\\\"true\\\" aria-labelledby=\\\"${\"\" + post.id}-title\\\" aria-hidden=\\\"true\\\">\n          <div class=\\\"vibe-modal-backdrop\\\" onclick=\\\"closeModal('${post.id}')\\\"></div>\n          <div class=\\\"vibe-modal-panel\\\" role=\\\"document\\\">\n            <button class=\\\"vibe-modal-close\\\" aria-label=\\\"Close\\\" onclick=\\\"closeModal('${post.id}')\\\">✕</button>\n            ${post.imageUrl ? `<img class=\\\"vibe-card-media\\\" style=\\\"height: 250px; border-radius: 8px; margin-bottom: 1.5rem;\\\" src=\\\"${\"\" + escapeHTML(post.imageUrl)}\\\" alt=\\\"${\"\" + altText}\\\">` : ''}\n            <h3 id=\\\"${\"\" + post.id}-title\\\" style=\\\"margin-top:0; font-size: 1.75rem;\\\">${escapedTitle}</h3>\n            <div>${post.content}</div>\n          </div>\n        </div>`;\n        \n        fullPageGrid.insertAdjacentHTML('beforeend', postCardHTML);\n\n        if (index < 3) {\n            homepageGrid.insertAdjacentHTML('beforeend', postCardHTML);\n        }\n\n        document.body.insertAdjacentHTML('beforeend', postModalHTML);\n    });\n}"
+    },
+    {
+      "id": "function-initialize",
+      "type": "js-function",
+      "description": "Initializes the application by setting up initial blog content if needed, checking login status, and rendering blog posts.",
+      "code": "function initialize() {\n    if (!localStorage.getItem('blogPosts')) {\n        localStorage.setItem('blogPosts', JSON.stringify([initialPost]));\n    }\n    checkLoginStatus();\n    renderAllBlogContent();\n}"
+    },
+    {
+      "id": "function-clear-field",
+      "type": "js-function",
+      "description": "A helper function to clear the placeholder value of a form field on focus.",
+      "code": "window.clearField = function(arg,val) {\n    var field = document.getElementById(arg);\n    if(field && field.value == val) {\n        field.value = \"\";\n    }\n}"
+    },
+    {
+      "id": "function-restore-field",
+      "type": "js-function",
+      "description": "A helper function to restore the placeholder value of a form field on blur if it's empty.",
+      "code": "window.restoreField = function(arg,val) {\n    var field = document.getElementById(arg);\n    if(field && field.value == \"\") {\n        field.value = val;\n    }\n}"
+    },
+    {
+      "id": "ui-event-listeners",
+      "type": "javascript",
+      "description": "Sets up global event listeners for UI interactions like closing modals with the Escape key, toggling the mobile navigation, and auto-sizing textareas.",
+      "code": "document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.vibe-modal.is-open').forEach(m=>closeModal(m.id));});\ndocument.querySelector('.vibe-nav-toggle')?.addEventListener('click',e=>{const menu=document.querySelector('.vibe-nav-menu');const open=menu.classList.toggle('is-open');e.currentTarget.setAttribute('aria-expanded',String(open));});\ndocument.querySelectorAll('.vibe-textarea').forEach(t=>{const resize=()=>{t.style.height='auto';t.style.height=(t.scrollHeight)+'px';};t.addEventListener('input',resize);resize();});"
+    },
+    {
+      "id": "declaration-app-dom-elements",
+      "type": "declaration",
+      "description": "Declares constants to hold references to the login form, logout button, and create post form DOM elements.",
+      "code": "const loginForm = document.getElementById('loginForm');\nconst logoutBtn = document.getElementById('logoutBtn');\nconst createPostForm = document.getElementById('createPostForm');"
+    },
+    {
+      "id": "declaration-initial-post",
+      "type": "declaration",
+      "description": "Defines an initial blog post object to be used if no posts exist in local storage.",
+      "code": "const initialPost = {\n    id: 'blogPost1Modal',\n    title: 'The Gift of Clarity: Why Advance Care Planning Matters',\n    imageUrl: 'https://picsum.photos/seed/health/600/300',\n    content: `<p>Planning for your future healthcare needs is one of the most significant gifts you can give to your loved ones. It’s a process of thinking about and sharing your preferences for future medical treatment in the event you are unable to communicate them yourself. This process is known as Advance Care Planning (ACP).</p>\\n              <p>ACP isn't just about filling out forms; it's about having meaningful conversations with the people who matter most. It ensures that your voice is heard and your values are respected, even when you can't speak for yourself. This clarity can lift a heavy burden from your family, who would otherwise be left to make difficult decisions without knowing your wishes.</p>\\n              <p>At Angels Outreach, we guide you through this process with compassion and expertise. We provide resources to help you understand your options, document your choices in an advance directive, and communicate them effectively with your family and healthcare providers. Taking these steps today provides peace of mind for tomorrow, for both you and your loved ones.</p>`,\n    alt: 'A person considering their healthcare options'\n};"
+    },
+    {
+      "id": "authentication-logic",
+      "type": "javascript",
+      "description": "Handles user authentication by setting login status in local storage on form submission and removing it on logout.",
+      "code": "loginForm?.addEventListener('submit', (e) => {\n    e.preventDefault();\n    localStorage.setItem('isLoggedIn', 'true');\n    checkLoginStatus();\n    closeModal('loginModal');\n});\n\nlogoutBtn?.addEventListener('click', () => {\n    localStorage.removeItem('isLoggedIn');\n    checkLoginStatus();\n});"
+    },
+    {
+      "id": "blog-post-creation-logic",
+      "type": "javascript",
+      "description": "Handles the creation of new blog posts by taking form data, adding it to the posts array in local storage, and re-rendering the blog content.",
+      "code": "createPostForm?.addEventListener('submit', (e) => {\n    e.preventDefault();\n    const posts = JSON.parse(localStorage.getItem('blogPosts')) || [];\n    const newPost = {\n        id: 'blogPost' + Date.now(),\n        title: document.getElementById('postTitle').value,\n        imageUrl: document.getElementById('postImageUrl').value,\n        alt: document.getElementById('postImageAlt').value,\n        content: document.getElementById('postContentEditor').innerHTML,\n    };\n    posts.unshift(newPost);\n    localStorage.setItem('blogPosts', JSON.stringify(posts));\n    \n    renderAllBlogContent();\n    closeModal('createPostModal');\n    createPostForm.reset();\n    document.getElementById('postContentEditor').innerHTML = '';\n});"
+    },
+    {
+      "id": "page-initialization",
+      "type": "javascript",
+      "description": "Calls the main initialize function to start the application when the script loads.",
+      "code": "initialize();"
+    }
+  ]
+}
